@@ -1,0 +1,371 @@
+/* Root Variables & Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500&display=swap');
+
+.stApp {
+    background-color: #F8F6F2;
+    color: #1C1917;
+    font-family: 'Inter', sans-serif;
+}
+
+/* =========================================
+   Layout Reset & Width Control
+   ========================================= */
+.block-container {
+    padding: 3rem 1.5rem !important;
+    max-width: 900px !important;
+}
+
+/* Sidebar Sizing & Background */
+[data-testid="stSidebar"] {
+    background-color: #FCFAF7 !important;
+    border-right: 1px solid #E7E5E4 !important;
+    min-width: 240px !important;
+    max-width: 240px !important;
+    width: 240px !important;
+}
+
+/* =========================================
+   Sidebar Brand Logo
+   ========================================= */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px 32px 12px;
+}
+.brand-icon {
+    background: #1F2937;
+    color: #F8F6F2;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+.brand-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1C1917;
+    letter-spacing: -0.02em;
+}
+
+/* =========================================
+   Sidebar Nav Menu (Radio Replace)
+   = The radio circle is hidden, acting as full block wrapper
+   ========================================= */
+[data-testid="stSidebar"] .stRadio > label { display: none; }
+[data-testid="stSidebar"] div[role="radiogroup"] > label div[data-baseweb="radio"] > div:first-child { display: none; }
+
+[data-testid="stSidebar"] div[role="radiogroup"] > label {
+    background-color: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    border: none;
+}
+[data-testid="stSidebar"] div[role="radiogroup"] > label:hover {
+    background-color: #F1EFEB;
+}
+[data-testid="stSidebar"] div[role="radiogroup"] > label div[data-testid="stMarkdownContainer"] p {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #78716C; /* Muted text */
+    margin: 0;
+}
+
+/* ACTIVE NAV ITEM */
+[data-testid="stSidebar"] div[role="radiogroup"] > label:has(input:checked) {
+    background-color: #E7E5E4;
+}
+[data-testid="stSidebar"] div[role="radiogroup"] > label:has(input:checked) div[data-testid="stMarkdownContainer"] p {
+    color: #1C1917; /* Primary */
+    font-weight: 600;
+}
+
+/* =========================================
+   Sidebar Pro Card
+   ========================================= */
+.sidebar-pro-card {
+    margin-top: 40px;
+    background-color: #FFFFFF;
+    border: 1px solid #E7E5E4;
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+}
+.pro-badge {
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    background: #F26B2D;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+.pro-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #1C1917;
+    margin-bottom: 4px;
+}
+.pro-desc {
+    font-size: 0.75rem;
+    color: #78716C;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+.pro-btn {
+    background: #1F2937;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 6px 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.pro-btn:hover { background: #111827; }
+
+/* =========================================
+   Compact Main Header
+   ========================================= */
+.page-header {
+    margin-bottom: 24px;
+}
+.page-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1C1917;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.02em;
+}
+.page-subtitle {
+    font-size: 0.95rem;
+    color: #78716C;
+}
+
+/* =========================================
+   Main Cards / Dashboard Modules
+   ========================================= */
+.main-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E7E5E4;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 4px -2px rgba(0,0,0,0.03);
+}
+
+/* =========================================
+   Inputs & Forms (SaaS Style)
+   ========================================= */
+.stTextInput > div > div > input, .stTextArea > div > div > textarea, .stNumberInput > div > div > input {
+    background-color: #FCFAF7;
+    border: 1px solid #E7E5E4;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #1C1917;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+.stTextInput > div > div > input:focus, .stTextArea > div > div > textarea:focus {
+    border-color: #F26B2D;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(242, 107, 45, 0.1);
+}
+.stTextInput > label > div > p, .stTextArea > label > div > p, .stNumberInput > label > div > p {
+    font-weight: 500;
+    color: #78716C;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+/* Primary Form Button */
+button[kind="primary"] {
+    background-color: #1F2937 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0px 16px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    transition: background-color 0.2s !important;
+    min-height: 42px !important;
+}
+button[kind="primary"]:hover { background-color: #111827 !important; }
+
+/* Secondary Button */
+button[kind="secondary"] {
+    background-color: #FFFFFF !important;
+    color: #1C1917 !important;
+    border: 1px solid #E7E5E4 !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    transition: background-color 0.2s !important;
+    min-height: 42px !important;
+}
+button[kind="secondary"]:hover { background-color: #FCFAF7 !important; }
+
+/* =========================================
+   Grid Stats & Dashboard Components
+   ========================================= */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+.stat-box {
+    background-color: #FCFAF7;
+    border: 1px solid #E7E5E4;
+    border-radius: 8px;
+    padding: 16px;
+}
+.stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    color: #78716C;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+.stat-val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1C1917;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Structured Info Rows (Linear/Notion style list) */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E7E5E4;
+    padding: 12px 4px;
+}
+.info-row:last-child { border-bottom: none; }
+.info-key {
+    font-size: 0.85rem;
+    color: #78716C;
+    font-weight: 500;
+}
+.info-val {
+    font-size: 0.9rem;
+    color: #1C1917;
+    font-weight: 600;
+}
+.mono {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.8rem;
+    letter-spacing: -0.01em;
+}
+
+/* Conversion Mono Display Box */
+.mono-box {
+    font-family: 'JetBrains Mono', monospace;
+    background: #FCFAF7;
+    border: 1px solid #E7E5E4;
+    padding: 12px;
+    border-radius: 8px;
+    color: #1C1917;
+    font-size: 0.9rem;
+    font-weight: 500;
+    word-break: break-all;
+    margin-top: 4px;
+}
+
+/* =========================================
+   Pill Alerts
+   ========================================= */
+.pill-success {
+    display: inline-flex;
+    background-color: #DCFCE7;
+    color: #166534;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 16px;
+    align-items: center;
+}
+.pill-error {
+    display: inline-flex;
+    background-color: #FEE2E2;
+    color: #991B1B;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 16px;
+    margin-top: 8px;
+}
+
+/* =========================================
+   Dataframes & Tabs
+   ========================================= */
+.stDataFrame {
+    border: 1px solid #E7E5E4;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Styling Tabs into segmented pills */
+[data-testid="stTabs"] [data-baseweb="tab-list"] {
+    background-color: #F8F6F2;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+    border-bottom: none;
+}
+[data-testid="stTabs"] [data-baseweb="tab"] {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #78716C;
+    background-color: transparent;
+    border: none !important;
+}
+[data-testid="stTabs"] [aria-selected="true"] {
+    background-color: #FFFFFF !important;
+    color: #1C1917 !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.card-panel {
+    background-color: #FFFFFF;
+    border: 1px solid #E7E5E4;
+    border-radius: 12px;
+    padding: 8px 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.01);
+    margin-bottom: 12px;
+}
+
+.section-label {    
+    font-weight: 600;
+    color: #1C1917;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+.list-item {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    background: #FCFAF7;
+    border: 1px solid #E7E5E4;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+.list-item span {
+    font-weight: 600;
+}
